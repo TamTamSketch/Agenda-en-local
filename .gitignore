@@ -1,0 +1,18 @@
+# Données personnelles et état local — ne pas publier
+agenda_local.json
+agenda_widget.json
+agenda_widget.lock
+agenda_local.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

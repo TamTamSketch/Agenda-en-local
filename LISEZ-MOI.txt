@@ -1,0 +1,69 @@
+AGENDA LOCAL — guide rapide
+
+- Application Python avec interface graphique (Tkinter, inclus avec Python, gratuit).
+- Aucun code réseau, aucun cloud, aucune adresse e-mail, aucune synchronisation.
+- Les rendez-vous sont enregistrés dans agenda_local.json à côté du script.
+- Fonctions : calendrier mensuel, sélection d'un jour, ajout/modification/suppression,
+  notes, export de sauvegarde JSON.
+- Date et heure se choisissent au clic : mini-calendrier pour le jour, horloge analogique
+  pour l'heure (aiguilles et chiffres). Plus besoin de taper AAAA-MM-JJ ni HH:MM.
+
+
+LANCEMENT
+Windows :
+  1. Installez Python depuis python.org en cochant "Add Python to PATH".
+  2. Double-cliquez sur agenda_local.py, ou lancez : py agenda_local.py
+
+macOS/Linux :
+  python3 agenda_local.py
+  Si Tkinter manque, installez le paquet Tkinter fourni par votre système.
+
+
+AJOUTER UN RENDEZ-VOUS
+- Bouton "+ Nouveau rendez-vous" ou "Ajouter".
+- Titre : saisie libre.
+- Jour : cliquez un chiffre dans le mini-calendrier (flèches pour changer de mois).
+- Heure : cliquez un chiffre sur le cadran, ou faites glisser les aiguilles.
+  D'abord les heures (couronne intérieure 00–11, extérieure 12–23), puis les minutes.
+  Les gros chiffres au-dessus de l'horloge permettent de revenir aux heures ou aux minutes.
+- Notes : facultatif. Enregistrer.
+
+
+SÉCURITÉ
+- Pour une isolation plus forte : coupez Wi-Fi/Bluetooth, ne branchez pas l'appareil
+  à un réseau et protégez votre session système par un mot de passe.
+- Le fichier JSON est en clair par défaut : les autres utilisateurs du même ordinateur
+  peuvent potentiellement le lire. Protégez votre compte et vos sauvegardes.
+- Chiffrement optionnel : installez le paquet Python 'cryptography' puis définissez
+  la variable d'environnement AGENDA_PASSWORD avant de lancer le programme.
+  Exemple PowerShell (Windows) :
+    $env:AGENDA_PASSWORD = "une-longue-phrase-secrete"
+    py agenda_local.py
+  Exemple macOS/Linux :
+    export AGENDA_PASSWORD='une-longue-phrase-secrete'
+    python3 agenda_local.py
+  ATTENTION : utilisez toujours le même mot de passe. Si vous le perdez, les données
+  chiffrées ne pourront pas être récupérées. Le chiffrement optionnel n'est pas activé
+  automatiquement et n'est pas une garantie contre un ordinateur déjà compromis.
+- L'export JSON est en clair, même si le fichier principal est chiffré.
+- Faites des copies de sauvegarde sur une clé USB gardée en lieu sûr.
+
+
+INTERFACE
+- Palette chaleureuse (crème / terracotta), sans bibliothèque payante ni connexion.
+- Les rendez-vous apparaissent sous forme de barres colorées dans les cases du calendrier.
+- Jusqu'à 3 barres sont visibles par jour ; un indicateur affiche les rendez-vous supplémentaires.
+- Double-clic sur un rendez-vous de la liste pour le modifier.
+
+
+SEMAINE SUR LE BUREAU
+- Un bouton « Agenda semaine » est créé sur le bureau Windows (raccourci).
+- Au lancement, un bouton compact reste visible : cliquez pour voir la semaine,
+  glissez pour le déplacer. Le bouton « − » le réduit à nouveau.
+- Il lit le même agenda_local.json : tout ce que vous ajoutez dans l'agenda
+  apparaît sur le widget (rafraîchi tout seul).
+- « Ouvrir l'agenda » ramène la fenêtre complète.
+- « Épinglé au-dessus » garde le bouton devant les autres fenêtres.
+- « Au démarrage : oui » le relance à l'ouverture de Windows (désactivez si besoin).
+- Lancement du bouton seul :  py agenda_local.py --widget
+  (ou double-clic sur le raccourci du bureau).
